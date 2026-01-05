@@ -5,9 +5,9 @@
 ## 📖 Table of Contents
 1. [Why Proton Pass Wrapper?](#1--why-proton-pass-wrapper)
 2. [API Reference](#2--api-reference)
-3. [Installation & Usage](#3--installation--usage)
+3. [Installation & Usage](#3-%EF%B8%8F-installation--usage)
 4. [Repository Structure](#4--repository-structure)
-5. [License & Contact](5#--license--contact)
+5. [License & Contact](#5--license--contact)
 
 ## 1. 🎯 Why Proton Pass Wrapper?
 Developers often need to pull credentials for automation (CI/CD, bots, local scripts), but manually managing the **Proton Pass CLI** can be clunky. This library solves that by providing:
