@@ -3,11 +3,11 @@
 **Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables **easy, private, and secure access to your vaults**, allowing you to **retrieve credentials** programmatically while keeping sensitive information out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
 
 ## 📖 Table of Contents
-1. [Why Proton Pass Wrapper?](#-why-proton-pass-wrapper)
-2. [API Reference & Features](#-api-reference)
-3. [Installation and Usage](#-installation--usage)
-4. [Repository Structure](#-repository-structure)
-5. [License & Contact](#-license--contact)
+1. [Why Proton Pass Wrapper?](#1--why-proton-pass-wrapper)
+2. [API Reference](#2--api-reference)
+3. [Installation & Usage](#3--installation--usage)
+4. [Repository Structure](#4--repository-structure)
+5. [License & Contact](5#--license--contact)
 
 ## 1. 🎯 Why Proton Pass Wrapper?
 Developers often need to pull credentials for automation (CI/CD, bots, local scripts), but manually managing the **Proton Pass CLI** can be clunky. This library solves that by providing:
@@ -16,7 +16,7 @@ Developers often need to pull credentials for automation (CI/CD, bots, local scr
 - 🪶 **Lightweight & Native:** A zero-dependency wrapper that works anywhere the CLI works—**Windows, macOS, and Linux.**
 - 🔄 **Session Resilience:** Built-in status checks and automated login handling for smooth execution.
 
-## 2. 🚀 API Reference & Features
+## 2. 🚀 API Reference
 
 | Function | Key Feature | Description |
 | :--- | :--- | :--- |
@@ -28,7 +28,7 @@ Developers often need to pull credentials for automation (CI/CD, bots, local scr
 
 **Note:** This library supports retrieval of fields visible in the Proton Pass UI (e.g., username, password, API Key). For a full list of CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
 
-## 3. 🛠️ Installation and Usage
+## 3. 🛠️ Installation & Usage
 
 ### Installation
 ```bash
