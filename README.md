@@ -1,43 +1,52 @@
 # 🔐 **Proton Pass Wrapper**  
 
-**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables **easy, private, and secure access to your vaults**, allowing you to **retrieve secrets** programmatically while keeping sensitive information out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
+**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables easy, private, and secure access to your vaults, allowing you to **retrieve secrets programmatically** while keeping them out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
 
 1. [Why Proton Pass Wrapper?](#1--why-proton-pass-wrapper)
 2. [API Reference](#2--api-reference)
 3. [Installation & Usage](#3-%EF%B8%8F-installation--usage)
 4. [Repository Structure](#4--repository-structure)
 5. [License & Contact](#5--license--contact)
+
 <br>
+
+---
 
 ## 1. 🎯 Why Proton Pass Wrapper?
 
-Developers often need to pull secrets like credentials for automation (e.g., CI/CD, bots, local scripts), but manually managing the Proton Pass in the CLI can be clunky. This library solves that by providing:
-- ⚡ **Effortless Discovery:** Programmatically list vaults, items, and fields to fetch what you need without ever touching the terminal.
-- 🛡️ **Secret Injection:** Fetch secrets like passwords and API keys directly into variables, keeping sensitive info out of source code `.env` files.
-- 🪶 **Lightweight & Native:** A lightweight zero-dependency wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
-- 🔄 **Lifecycle Management:** Built-in status checks, automated login, and secure logout handling for smooth uninterrupted execution.
+Developers often need to pull secrets like credentials for program automation (e.g., CI/CD, bots, local scripts), but manually managing **Proton Pass** in the CLI can be clunky for automated workflows. This library solves that by providing:
+- ⚡ **Effortless Discovery:** Programmatically list vaults, items, and fields without ever touching the terminal.
+- 🛡️ **Secret Injection:** Fetch secrets like passwords and API keys directly into variables, keeping sensitive info out of your source code and `.env` files.
+- 🪶 **Native & Universal:** A lightweight zero-dependency wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
+- 🔄 **Lifecycle Management:** Built-in status checks, automated login, and secure logout for smooth, uninterrupted, and reliable execution.
+
 <br>
+
+---
 
 ## 2. 🚀 API Reference
 
 | Function | Key Feature | Description |
 | :--- | :--- | :--- |
-| `protonpass_path(path)` | Environment Setup | Configures the absolute path to your `proton-pass-cli`. |
-| `protonpass_status()` | Session Health | Returns `True` if connected and authenticated, `False` otherwise. |
-| `protonpass_login()` | Authentication Management | Triggers the secure browser-based login flow when needed. |
-| `protonpass_vaults()` | Vault Discovery | Ends the current session and clears local authentication. |
-| `protonpass_items(vault)` | Item Discovery | Ends the current session and clears local authentication. |
-| `protonpass_fields(vault,item)` | Field Discovery | Lists all available items within a specific vault or container. |
-| `protonpass_get(vault,item,field)` | Secret Retrieval | Fetches specific data (e.g., password, username, etc.) from a vault and item names or IDs as well as fields. |
+| `protonpass_path(path)` | Environment Setup | Configures the absolute *path* to your `proton-pass-cli` binary. |
+| `protonpass_status()` | Session Health | Returns `True` if authenticated, `False` if login is required. |
+| `protonpass_login()` | Authentication | Triggers the secure browser-based login flow. |
+| `protonpass_vaults()` | Vault Discovery | Lists all available vaults. |
+| `protonpass_items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
+| `protonpass_fields(vault, item)` | Field Discovery | Lists all fields for a specific *vault* and *item*. |
+| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
-**Note:** This library supports retrieval of fields visible in the Proton Pass UI (e.g., username, password, API Key). For a full list of CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
+**Note:** This library supports the use of both names and IDs for vaults and items. For a full list of underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
+
 <br>
+
+---
 
 ## 3. 🛠️ Installation & Usage
 
 ### Prerequisites
-Before installing, ensure you have **[Python 3.8+](https://www.python.org/)** and **[Proton Pass CLI](https://protonpass.github.io/pass-cli/)** set up.
+Before installing, ensure you have [Python 3.8+](https://www.python.org/) and [Proton Pass CLI](https://protonpass.github.io/pass-cli/) set up.
 
 ### Installation
 ```bash
@@ -73,7 +82,10 @@ my_vaults = protonpass_vaults()
 # 7️⃣ Optional: Logout to secure the session
 protonpass_logout()
 ```
+
 <br>
+
+---
 
 ## 4. 📁 Repository Structure
 
@@ -90,10 +102,15 @@ proton-pass-wrapper/
 ├── LICENSE                       # MIT usage terms
 └── README.md                     # Documentation and guide
 ```
+
 <br>
+
+---
 
 ## 5. 📄 License & Contact
 
 **License:** MIT License – free to use, modify, and distribute. See `LICENSE`.
 
 **Contact:** Anonymous – gh.cyclic706@passmail.net
+
+<br>
