@@ -1,34 +1,43 @@
 # 🔐 **Proton Pass Wrapper**  
 
-**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables **easy, private, and secure access to your vaults**, allowing you to **retrieve credentials** programmatically while keeping sensitive information out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
+**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables **easy, private, and secure access to your vaults**, allowing you to **retrieve secrets** programmatically while keeping sensitive information out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
 
-## 📖 Table of Contents
 1. [Why Proton Pass Wrapper?](#1--why-proton-pass-wrapper)
 2. [API Reference](#2--api-reference)
 3. [Installation & Usage](#3-%EF%B8%8F-installation--usage)
 4. [Repository Structure](#4--repository-structure)
 5. [License & Contact](#5--license--contact)
+<br>
 
 ## 1. 🎯 Why Proton Pass Wrapper?
-Developers often need to pull credentials for automation (CI/CD, bots, local scripts), but manually managing the **Proton Pass CLI** can be clunky. This library solves that by providing:
-- ⚡ **Effortless Automation:** Programmatically fetch passwords, usernames, api keys, secrets, custom fields, and more without touching the terminal.
-- 🛡️ **"Secret Injection" Pattern:** Keep sensitive credentials out of your source code and `.env` files.
-- 🪶 **Lightweight & Native:** A zero-dependency wrapper that works anywhere the CLI works—**Windows, macOS, and Linux.**
-- 🔄 **Session Resilience:** Built-in status checks and automated login handling for smooth execution.
+
+Developers often need to pull secrets like credentials for automation (e.g., CI/CD, bots, local scripts), but manually managing the Proton Pass in the CLI can be clunky. This library solves that by providing:
+- ⚡ **Effortless Discovery:** Programmatically list vaults, items, and fields to fetch what you need without ever touching the terminal.
+- 🛡️ **Secret Injection:** Fetch secrets like passwords and API keys directly into variables, keeping sensitive info out of source code `.env` files.
+- 🪶 **Lightweight & Native:** A lightweight zero-dependency wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
+- 🔄 **Lifecycle Management:** Built-in status checks, automated login, and secure logout handling for smooth uninterrupted execution.
+<br>
 
 ## 2. 🚀 API Reference
 
 | Function | Key Feature | Description |
 | :--- | :--- | :--- |
-| `protonpass_path(path)` | Environment Setup | Configures the absolute path to your `pass-cli.exe`. |
+| `protonpass_path(path)` | Environment Setup | Configures the absolute path to your `proton-pass-cli`. |
 | `protonpass_status()` | Session Health | Returns `True` if connected and authenticated, `False` otherwise. |
-| `protonpass_login()` | Auth Management | Triggers the secure browser-based login flow when needed. |
-| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific data (password, totp, etc.) from a vault and item names or IDs as well as fields|
-| `protonpass_items()` | Vault Discovery | Lists all available items within a specific vault or container. |
+| `protonpass_login()` | Authentication Management | Triggers the secure browser-based login flow when needed. |
+| `protonpass_vaults()` | Vault Discovery | Ends the current session and clears local authentication. |
+| `protonpass_items(vault)` | Item Discovery | Ends the current session and clears local authentication. |
+| `protonpass_fields(vault,item)` | Field Discovery | Lists all available items within a specific vault or container. |
+| `protonpass_get(vault,item,field)` | Secret Retrieval | Fetches specific data (e.g., password, username, etc.) from a vault and item names or IDs as well as fields. |
+| `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
 **Note:** This library supports retrieval of fields visible in the Proton Pass UI (e.g., username, password, API Key). For a full list of CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
+<br>
 
 ## 3. 🛠️ Installation & Usage
+
+### Prerequisites
+Before installing, ensure you have **[Python 3.8+](https://www.python.org/)** and **[Proton Pass CLI](https://protonpass.github.io/pass-cli/)** set up.
 
 ### Installation
 ```bash
@@ -48,14 +57,23 @@ protonpass_path("C:/Users/YourName/AppData/Local/Programs/ProtonPass/pass-cli.ex
 if not protonpass_status():
     protonpass_login()
 
-# 4️⃣ Retrieve credentials using vault and item names or IDs as well as field
-client_id = protonpass_get("Personal Vault", "Service Account", "api key")
-client_secret = protonpass_get("n7_zP2mR1k_L9v4T0w3M6qK9zH2fW5cA8jB1k4mZ7v9nR1x4T7P0w3L-6K9M2Q5rJ8uD1yS4oV7eX0iG3pN6qT9==", "R1x4T7P0w3L6K9-M2Q5rJ8uD1yS4oV7eX0iG3pN6qT9zH2fW5cA8jB1k4m_Z7v9nR1x4T7P0w3L6K9M2Q5r_J8u==", "secret")
+# 4️⃣ Discover secrets
+my_vaults = protonpass_vaults() 
+# items = protonpass_items("Personal Vault")
+# fields = protonpass_fields("Personal Vault", "Service Account")
 
-# 5️⃣ Initialize service integration keeping sensitive info out of source code
+# 5️⃣ Retrieve credentials using vault and item names or IDs as well as field
+# client_id = protonpass_get("Personal Vault", "Service Account", "api key")
+# client_secret = protonpass_get("n7_zP2mR1k...qT9==", "R1x4T7P0w3...J8u==", "secret")
+
+# 6️⃣ Example initializing service integration keeping sensitive info out of source code
 # client = MyServiceClient(api_key = client_id, api_secret = client_secret)
 # client.connect()
+
+# 7️⃣ Optional: Logout to secure the session
+protonpass_logout()
 ```
+<br>
 
 ## 4. 📁 Repository Structure
 
@@ -72,8 +90,10 @@ proton-pass-wrapper/
 ├── LICENSE                       # MIT usage terms
 └── README.md                     # Documentation and guide
 ```
+<br>
 
 ## 5. 📄 License & Contact
+
 **License:** MIT License – free to use, modify, and distribute. See `LICENSE`.
 
-**Contact:** Anonymous – joel.collard@mail.mcgill.ca
+**Contact:** Anonymous – gh.cyclic706@passmail.net
