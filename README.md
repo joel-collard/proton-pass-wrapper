@@ -34,7 +34,7 @@ Developers often need to pull secrets like credentials for program automation (e
 | `protonpass_vaults()` | Vault Discovery | Lists all available vaults. |
 | `protonpass_items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
 | `protonpass_fields(vault, item)` | Field Discovery | Lists all fields for a specific *vault* and *item*. |
-| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
+| `protonpass_get(vault, item, field)` | Secret Retrievals | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
 **Note:** This library supports the use of both names and IDs for vaults and items. For a full list of underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
@@ -67,11 +67,11 @@ if not protonpass_status():
     protonpass_login()
 
 # 4️⃣ Discover secrets
-my_vaults = protonpass_vaults() 
-# items = protonpass_items("Personal Vault")
-# fields = protonpass_fields("Personal Vault", "Service Account")
+print(protonpass_vaults())
+# print(protonpass_items("Personal Vault"))
+# print(protonpass_fields("Personal Vault", "Service Account"))
 
-# 5️⃣ Retrieve credentials using vault and item names or IDs as well as field
+# 5️⃣ Retrieve secrets using vault and item names or IDs as well as field
 # client_id = protonpass_get("Personal Vault", "Service Account", "api key")
 # client_secret = protonpass_get("n7_zP2mR1k...qT9==", "R1x4T7P0w3...J8u==", "secret")
 
