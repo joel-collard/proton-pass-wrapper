@@ -33,7 +33,7 @@ Developers often need to pull secrets like credentials for program automation (e
 | `protonpass_login()` | Authentication | Triggers the secure browser-based login flow. |
 | `protonpass_vaults()` | Vault Discovery | Lists all available vaults. |
 | `protonpass_items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
-| `protonpass_fields(vault, item)` | Field Discovery | Lists all fields for a specific *vault* and *item*. |
+| `protonpass_fields(vault, item)` | Field Discovery | Lists all fields and details for a specific *vault* and *item*. |
 | `protonpass_get(vault, item, field)` | Secret Retrievals | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
@@ -56,13 +56,13 @@ pip install proton-pass-wrapper
 
 ### Usage in Python
 ```python
-# 1️⃣ Import wrapper functions
+# 1️⃣ Import functions
 from proton_pass_wrapper import *
 
-# 2️⃣ Configure Proton Pass CLI path
+# 2️⃣ Configure path
 protonpass_path("C:/Users/YourName/AppData/Local/Programs/ProtonPass/pass-cli.exe")
 
-# 3️⃣ Check session, login as required
+# 3️⃣ Check session
 if not protonpass_status():
     protonpass_login()
 
@@ -71,15 +71,15 @@ print(protonpass_vaults())
 # print(protonpass_items("Personal Vault"))
 # print(protonpass_fields("Personal Vault", "Service Account"))
 
-# 5️⃣ Retrieve secrets using vault and item names or IDs as well as field
+# 5️⃣ Retrieve secrets
 # client_id = protonpass_get("Personal Vault", "Service Account", "api key")
 # client_secret = protonpass_get("n7_zP2mR1k...qT9==", "R1x4T7P0w3...J8u==", "secret")
 
-# 6️⃣ Example initializing service integration keeping sensitive info out of source code
-# client = MyServiceClient(api_key = client_id, api_secret = client_secret)
-# client.connect()
+# 6️⃣ Use secrets
+# Securely inject secrets into your application, services, or
+# automated workflows—eliminating sensitive info from your code.
 
-# 7️⃣ Optional: Logout to secure the session
+# 7️⃣ Secure session
 protonpass_logout()
 ```
 
@@ -96,7 +96,7 @@ proton-pass-wrapper/
 │   ├── core.py                   # Main wrapper logic
 │   └── __main__.py               # CLI entry point
 ├── tests/                        
-│   └── test_wrapper.py           # Logic verification scripts
+│   └── test_wrapper.py           # Logic verification
 ├── pyproject.toml                # Build system metadata
 ├── .gitignore                    # Version control exclusions
 ├── LICENSE                       # MIT usage terms
