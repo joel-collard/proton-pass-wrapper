@@ -37,7 +37,7 @@ Developers often need to pull secrets like credentials for program automation (e
 | `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* secrets (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
-**Note:** This library supports the use of both names and IDs for vaults and items. For a full list of underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
+**Note:** This library supports the use of both names and IDs for vaults and items. For more information on underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
 
 <br>
 
@@ -45,18 +45,21 @@ Developers often need to pull secrets like credentials for program automation (e
 
 ## 3. 🛠️ Installation & Usage
 
-### Prerequisites
+**Prerequisites**
+
 Before installing, ensure you have [Python 3.8+](https://www.python.org/) and [Proton Pass CLI](https://protonpass.github.io/pass-cli/) set up.
 
-### Installation
+**Installation**
+
 ```bash
 # Install library
 pip install proton-pass-wrapper
 ```
 
-### Usage in Python
+**Usage in Python**
+
 ```python
-# 1️⃣ Import functions
+# 1️⃣ Import library
 from proton_pass_wrapper import *
 
 # 2️⃣ Configure path
