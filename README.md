@@ -34,7 +34,7 @@ Developers often need to pull secrets like credentials for program automation (e
 | `protonpass_vaults()` | Vault Discovery | Lists all available vaults. |
 | `protonpass_items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
 | `protonpass_fields(vault, item)` | Field Discovery | Lists all fields and details for a specific *vault* and *item*. |
-| `protonpass_get(vault, item, field)` | Secret Retrievals | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
+| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
 **Note:** This library supports the use of both names and IDs for vaults and items. For a full list of underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
