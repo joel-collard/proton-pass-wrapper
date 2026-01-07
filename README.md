@@ -34,7 +34,7 @@ Developers often need to pull secrets like credentials for program automation (e
 | `protonpass_vaults()` | Vault Discovery | Lists all available vaults. |
 | `protonpass_items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
 | `protonpass_fields(vault, item)` | Field Discovery | Lists all fields and details for a specific *vault* and *item*. |
-| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* data (e.g., password, username, etc.) from a specified *vault* and *item*. |
+| `protonpass_get(vault, item, field)` | Secret Retrieval | Fetches specific *field* secrets (e.g., password, username, etc.) from a specified *vault* and *item*. |
 | `protonpass_logout()` | Session Security | Ends the current session and clears local authentication. |
 
 **Note:** This library supports the use of both names and IDs for vaults and items. For a full list of underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
@@ -50,7 +50,7 @@ Before installing, ensure you have [Python 3.8+](https://www.python.org/) and [P
 
 ### Installation
 ```bash
-# Install from PyPI
+# Install library
 pip install proton-pass-wrapper
 ```
 
@@ -62,7 +62,7 @@ from proton_pass_wrapper import *
 # 2️⃣ Configure path
 protonpass_path("C:/Users/YourName/AppData/Local/Programs/ProtonPass/pass-cli.exe")
 
-# 3️⃣ Check session
+# 3️⃣ Confirm session
 if not protonpass_status():
     protonpass_login()
 
