@@ -17,6 +17,7 @@
 Developers often need to pull secrets like credentials for program automation (e.g., CI/CD, bots, local scripts), but manually managing **Proton Pass** in the CLI can be clunky for automated workflows. This library solves that by providing:
 - ⚡ **Effortless Discovery:** Programmatically list vaults, items, and fields without ever touching the terminal.
 - 🛡️ **Secret Injection:** Fetch secrets like passwords and API keys directly into variables, keeping sensitive info out of your source code and `.env` files.
+- 🤖 **Headless Automation:** Power background tasks, Docker containers, and CI/CD pipelines without manual logins—enabling true 24/7 "set-and-forget" secret management.
 - 🪶 **Native & Universal:** A lightweight zero-dependency wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
 - 🔄 **Lifecycle Management:** Built-in status checks, automated login, and secure logout for smooth, uninterrupted, and reliable execution.
 
