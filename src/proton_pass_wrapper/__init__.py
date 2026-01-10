@@ -6,29 +6,31 @@ programmatically while keeping them out of your source code. Designed for versat
 📄 Technical reference: https://github.com/joel-collard/proton-pass-wrapper
 """
 
-# 1. Import functions from core.py to make them accessible at the top level
+# 1. Import functions to library namespace
 from .core import (
     protonpass_path,
     protonpass_status,
-    protonpass_login,
+    protonpass_authenticate,
     protonpass_vaults,
     protonpass_items,
     protonpass_fields,
-    protonpass_get,
-    protonpass_logout
+    protonpass_secret,
+    protonpass_inject,
+    protonpass_terminate
 )
 
 # 2. Define metadata
 __version__ = "0.1.0"
 
-# 3. Define __all__ to control what 'from proton_pass_wrapper import *' exposes
+# 3. Define public functions for library namespace
 __all__ = [
     "protonpass_path",
     "protonpass_status",
-    "protonpass_login",
+    "protonpass_authenticate",
     "protonpass_vaults",
     "protonpass_items",
     "protonpass_fields",
-    "protonpass_get",
-    "protonpass_logout"
+    "protonpass_secret",
+    "protonpass_inject",
+    "protonpass_terminate"
 ]
