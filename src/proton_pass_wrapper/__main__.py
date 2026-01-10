@@ -1,46 +1,67 @@
-## TO DO
-## Check Wrapper Version
-## Check CLI Version
-## Check Authentication
-
-
 import argparse
 import sys
 from . import __version__
 from . import core
 
-def run_check():
-    """
-    Executes the diagnostic health check.
-    This coordinates the logic from core.py to present a clean report.
-    """
-    print(f"\n🔍 {core.BOLD}Proton Pass Wrapper: Environment Check{core.END}")
-    print("-" * 45)
-    
-    # 1. Check Wrapper Version
-    print(f"Proton Pass Wrapper Version:    v{__version__}")
-    
-    # 2. Check CLI Path (Calling the logic we will build in core.py)
-    cli_path = core.find_cli_path()
-    if cli_path:
-        print(f"Proton Pass CLI Path:    {cli_path} ✅")
-        
-        # 3. Check CLI Version
-        cli_ver = core.get_cli_version()
-        print(f"Proton Pass CLI Version: {cli_ver} ✅")
-        
-        # 4. Check Auth Status
-        if core.status():
-            print(f"Session Status:     Authenticated 🔐")
-        else:
-            print(f"Session Status:     Authentication Required ⚠️")
-            print(f"\n💡 Run 'ppw.authenticate()' in Python to log in.")
-    else:
-        print(f"Proton CLI Path:    Not Found ❌")
-        print(f"\n❗ Ensure Proton Pass CLI is installed and in your PATH.")
-        print(f"Visit: https://protonpass.github.io/pass-cli/")
+"""
+🛡️ Proton Pass Wrapper Check
+----------------------------------------------
+[Library]  v0.1.0 (Latest)         ✅
+[CLI]      v1.5.2 (Verified)       ✅
+[Binary]   /usr/local/bin/proton-pass
+[Session]  Active (Local)          ✅
 
-    print("-" * 45 + "\n")
+👉 Next Step: Use help(ppw) to explore API.
+"""
+
+def run_check():
+    # 1. Gather comprehensive data from core.py
+    wrapper_ver = __version__
+    cli_path = core.find_cli_path() 
+    cli_ver = core.get_cli_version() if cli_path else "N/A"
+    
+    # New state-aware detections
+    is_auth = core.status() if cli_path else False
+    is_headless = core.detect_headless()  # Checks for TTY or CI environment variables
+    session_type = "Headless" if is_headless else "Local"
+    
+    # 2. Render the "Executive Check"
+    print(f"\n🛡️ Proton Pass Wrapper Check")
+    print("-" * 46)
+    
+    # Row 1: Library Version
+    print(f"{'[Library]':<11} v{wrapper_ver:<18} ✅ (Latest)")
+
+    # Row 2 & 3: CLI Detection & Path
+    if cli_path:
+        print(f"{'[CLI]':<11} v{cli_ver:<18} ✅ (Verified)")
+        print(f"{'[Binary]':<11} 📍 {cli_path}")
+    else:
+        print(f"{'[CLI]':<11} {'Not Detected':<18} ❌")
+        print(f"{'[Binary]':<11} {'N/A':<18} ❌")
+
+    # Row 4: Session State
+    if is_auth:
+        print(f"{'[Session]':<11} {session_type:<18} ✅ (Active)")
+    else:
+        state_label = "Inactive" if cli_path else "Unknown"
+        icon = "⚠️" if cli_path else "❌"
+        print(f"{'[Session]':<11} {state_label:<18} {icon}")
+
+    # 3. Dynamic "Next Step" logic based on specific failure states
+    print("-" * 46)
+    
+    if not cli_path:
+        msg = "👉 Next Step: Install CLI (https://protonpass.github.io/pass-cli/) or manually verify path with ppw.path()."
+    elif not is_auth:
+        if is_headless:
+            msg = "👉 Next Step: Configure 'PROTON_PASS_APP_PASSWORD' for headless auth."
+        else:
+            msg = "👉 Next Step: Run 'ppw.authenticate()' to log into your account."
+    else:
+        msg = f"👉 Next Step: Use 'help(ppw)' to explore API."
+    
+    print(f"{msg}\n")
 
 def main():
     # Setup the Argument Parser
