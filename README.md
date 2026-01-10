@@ -1,6 +1,6 @@
 # 🔐 **Proton Pass Wrapper**  
 
-**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables easy, private, and secure access to your vaults, in **local or headless environments**, allowing you to **retrieve secrets programmatically** while keeping them out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
+**Proton Pass Wrapper** is a lightweight, cross-platform Python library that provides a seamless interface for Proton Pass CLI. It enables easy, private, and secure access to your vaults, in **local or headless environments**, allowing you to **retrieve and inject secrets programmatically** while keeping them out of your source code. Designed for versatility, it works out-of-the-box on Windows, macOS, and Linux.
 
 1. [Why Proton Pass Wrapper?](#1--why-proton-pass-wrapper)
 2. [API Reference](#2--api-reference)
