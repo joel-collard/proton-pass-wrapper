@@ -18,7 +18,7 @@ Developers often need to pull secrets like credentials for program automation (e
 - ⚡ **Effortless Discovery:** Programmatically list vaults, items, and fields without ever touching the terminal.
 - 🛡️ **Secret Injection:** Fetch secrets like passwords and API keys directly into variables, keeping sensitive info out of your source code and `.env` files.
 - 🤖 **Headless Integration:** Power background tasks, Docker containers, and CI/CD pipelines without manual logins—enabling true 24/7 "set-and-forget" secret management.
-- 🪶 **Native & Universal:** A lightweight zero-dependency wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
+- 🪶 **Native & Universal:** A lightweight zero-dependency Python wrapper that works anywhere the CLI works—Windows, macOS, and Linux.
 - 🔄 **Lifecycle Management:** Built-in status checks, automated login, and secure logout for smooth, uninterrupted, and reliable execution.
 
 <br>
@@ -63,27 +63,30 @@ pip install proton-pass-wrapper
 # 1️⃣ Import library
 from proton_pass_wrapper import *
 
-# 2️⃣ Configure path
+# 2️⃣ Quick reference
+help(proton_pass_wrapper)
+
+# 3️⃣ Configure path
 protonpass_path("C:/Users/YourName/AppData/Local/Programs/ProtonPass/pass-cli.exe")
 
-# 3️⃣ Confirm session
+# 4️⃣ Confirm session
 if not protonpass_status():
     protonpass_login()
 
-# 4️⃣ Discover secrets
+# 5️⃣ Discover secrets
 print(protonpass_vaults())
 # print(protonpass_items("Personal Vault"))
 # print(protonpass_fields("Personal Vault", "Service Account"))
 
-# 5️⃣ Retrieve secrets
+# 6️⃣ Retrieve secrets
 # client_id = protonpass_get("Personal Vault", "Service Account", "api key")
 # client_secret = protonpass_get("n7_zP2mR1k...qT9==", "R1x4T7P0w3...J8u==", "secret")
 
-# 6️⃣ Use secrets
+# 7️⃣ Use secrets
 # Securely inject secrets into your application, services, or
 # automated workflows—eliminating sensitive info from your code.
 
-# 7️⃣ Secure session
+# 8️⃣ 9️⃣ 🔟 Secure session
 protonpass_logout()
 ```
 
@@ -113,8 +116,8 @@ proton-pass-wrapper/
 
 ## 5. 📄 License & Contact
 
-**License:** MIT License – free to use, modify, and distribute. See `LICENSE`.
+**License:** Free to use, modify, and distribute. See [MIT LICENSE](https://github.com/joel-collard/proton-pass-wrapper/blob/main/LICENSE).
 
-**Contact:** Anonymous – gh.cyclic706@passmail.net
+**Contact:** For collaborations or issues, contact [Anonymous](mailto:gh.cyclic706@passmail.net).
 
 <br>
