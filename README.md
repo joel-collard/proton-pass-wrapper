@@ -27,7 +27,7 @@ Developers often need to pull secrets like credentials for program automation (e
 
 ## 2. 🚀 API Reference
 
-| Function | Key Feature | Description |
+| Function | Feature | Description |
 | :--- | :--- | :--- |
 | `path(path)` | Environment setup | Configures the absolute *path* to your `proton-pass-cli` binary (Defaults to auto-detect). |
 | `status()` | Session status | Returns `True` if authenticated, `False` if authentication is required. |
@@ -118,7 +118,7 @@ proton-pass-bridge/
 
 ## 5. 📄 License & Contact
 
-**License:** Free to use, modify, and distribute. See [MIT LICENSE](https://github.com/joel-collard/proton-pass-bridge/blob/main/LICENSE).
+**License:** Free to use, modify, and distribute. See [MIT LICENSE](LICENSE).
 
 **Contact:** For collaboration or issues, contact [Anonymous](mailto:gh.cyclic706@passmail.net).
 
