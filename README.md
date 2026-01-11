@@ -124,6 +124,6 @@ proton-pass-bridge/
 
 <br>
 
-> *Disclaimer: This is a community-driven open-source Python bridge for Proton Pass. It is maintained independently of Proton AG and is not an official Proton product.*
+> *This is a community-driven open-source Python bridge for Proton Pass. It is maintained independently of Proton AG and is not an official Proton product.*
 
 <br>
