@@ -29,7 +29,7 @@ Developers often need to pull secrets like credentials for program automation (e
 
 | Function | Feature | Description |
 | :--- | :--- | :--- |
-| `path(path)` | Environment setup | Configures the absolute *path* to your `proton-pass-cli` binary (Defaults to auto-detect). |
+| `path(path)` | Environment setup | Configures the absolute *path* to your `proton-pass-cli` binary (auto-detect default). |
 | `status()` | Session status | Returns `True` if authenticated, `False` if authentication is required. |
 | `authenticate()` | Session authentication | Triggers the secure browser-based login flow. |
 | `vaults()` | Vault discovery | Lists all available vaults. |
