@@ -29,15 +29,15 @@ Developers often need to pull secrets like credentials for program automation (e
 
 | Function | Key Feature | Description |
 | :--- | :--- | :--- |
-| `path(path)` | Environment Setup | Configures the absolute *path* to your `proton-pass-cli` binary (Defaults to auto-detect). |
-| `status()` | Session Status | Returns `True` if authenticated, `False` if authentication is required. |
-| `authenticate()` | Session Authentication | Triggers the secure browser-based login flow. |
-| `vaults()` | Vault Discovery | Lists all available vaults. |
-| `items(vault)` | Item Discovery | Lists all items within a specific *vault*. |
-| `fields(vault, item)` | Field Discovery | Lists all fields for a specific *vault* and *item*. |
-| `secret(vault, item, field)` | Standard Retrieval | Fetches a *field* secret (e.g., password, username) from a chosen *vault* and *item*. |
-| `inject(vault, item, field)` | Secure Retrieval | Securely handles a *field* secret from a chosen *vault* and *item* within a block, clearing it from memory after execution. |
-| `terminate()` | Session Termination | Terminates the current session and clears local authentication. |
+| `path(path)` | Environment setup | Configures the absolute *path* to your `proton-pass-cli` binary (Defaults to auto-detect). |
+| `status()` | Session status | Returns `True` if authenticated, `False` if authentication is required. |
+| `authenticate()` | Session authentication | Triggers the secure browser-based login flow. |
+| `vaults()` | Vault discovery | Lists all available vaults. |
+| `items(vault)` | Item discovery | Lists all items within a specific *vault*. |
+| `fields(vault, item)` | Field discovery | Lists all fields for a specific *vault* and *item*. |
+| `secret(vault, item, field)` | Standard retrieval | Fetches a *field* secret (e.g., password, username) from a chosen *vault* and *item*. |
+| `inject(vault, item, field)` | Secure retrieval | Securely handles a *field* secret from a chosen *vault* and *item* within a block, clearing it from memory after execution. |
+| `terminate()` | Session termination | Terminates the current session and clears local authentication. |
 
 **Note:** This library supports the use of both names and IDs for vaults and items. For more information on underlying CLI capabilities, refer to the [Official Proton Pass CLI Documentation](https://protonpass.github.io/pass-cli/).
 
@@ -57,7 +57,7 @@ Before installing, ensure you have [Python 3.8+](https://www.python.org/) and [P
 # Install library
 pip install proton-pass-bridge
 
-# Bridge check
+# Check bridge
 python -m proton_pass_bridge --check
 ```
 
@@ -66,10 +66,10 @@ python -m proton_pass_bridge --check
 ```python
 import proton_pass_bridge as ppb
 
-# Quick reference API documentation
+# API reference
 # help(ppb)
 
-# 1️⃣ Setup Session
+# 1️⃣ Setup session
 ppb.path()
 if not ppb.status():
     ppb.authenticate()
@@ -79,11 +79,11 @@ print(ppb.vaults())
 # print(ppb.items("Personal Vault"))
 # print(ppb.fields("Personal Vault", "Service Account"))
 
-# 3️⃣ Standard Retrieval (example using vault and item names)
+# 3️⃣ Standard retrieval (example using vault and item names)
 # account_username = ppb.secret("Personal Vault", "Service Account", "username")
 # account_password = ppb.secret("Personal Vault", "Service Account", "password")
 
-# 4️⃣ Secure Retrieval (example using vault and item IDs, clears from memory after execution)
+# 4️⃣ Secure retrieval (example using vault and item IDs, clears from memory after execution)
 # with (ppb.inject("R1x4T7P0w3...J8u==", "n7_zP2mR1k...qT9==", "api key") as api_key,
     # ppb.inject("R1x4T7P0w3...H9x==", "HJ7N_Cgdq4...Vv6==", "secret") as api_secret):  
     # Securely inject secrets into your application or service in this code block
