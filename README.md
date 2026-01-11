@@ -79,14 +79,15 @@ print(ppb.vaults())
 # print(ppb.items("Personal Vault"))
 # print(ppb.fields("Personal Vault", "Service Account"))
 
-# 3️⃣ Standard retrieval (example using vault and item names)
-# account_username = ppb.secret("Personal Vault", "Service Account", "username")
-# account_password = ppb.secret("Personal Vault", "Service Account", "password")
+# 3️⃣ Standard retrieval
+# username = ppb.secret("vault_name", "item_name", "field_name")
 
-# 4️⃣ Secure retrieval (example using vault and item IDs, clears from memory after execution)
-# with (ppb.inject("R1x4T7P0w3...J8u==", "n7_zP2mR1k...qT9==", "api key") as api_key,
-    # ppb.inject("R1x4T7P0w3...H9x==", "HJ7N_Cgdq4...Vv6==", "secret") as api_secret):  
-    # Securely inject secrets into your application or service in this code block
+# 4️⃣ Secure retrieval (clears from memory after execution)
+# with (
+    # ppb.inject("vault_id", "item_id", "field_name1") as key,
+    # ppb.inject("vault_id", "item_id", "field_name2") as secret
+# ):  
+    # Securely inject secrets into your application or service here
 
 # 5️⃣ Terminate session
 ppb.terminate()
