@@ -9,7 +9,7 @@ An independent community bridge for Proton Pass. Not an official
 Proton AG product.
 
 🛡️ Bridge check: $ python -m proton_pass_bridge --check
-📄 Documentation: https://github.com/joel-collard/proton-pass-bridge
+📄 Documentation: https://github.com/stealthcode847/proton-pass-bridge
 """
 
 # 1. Define metadata
